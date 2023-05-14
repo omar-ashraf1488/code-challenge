@@ -1,6 +1,6 @@
 from google.oauth2.service_account import Credentials
 
-from weather_api import fetch_weather_data
+from api.weather_api import fetch_weather_data
 from GCP.google_storage import create_bucket, create_folder
 from GCP.google_bigQuery import insert_row_into_bigquery
 from GCP.bigQuery_query_dump import dump_ingested_data
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     credentials_path = './env/code-challenge-tagesspiegel-d48fd3f5e794.json'
     target_table = 'code-challenge-tagesspiegel.code_challenge_tagesspiegel_dataset.code_challenge_tagesspiegel_table'
     api_key = 'L5YEW6VYK2RQJLXD9BUJZTCYH'
-    start_date = '2023-05-12'
+    start_date = '2023-05-16'
     end_date = ''
     location = 'Berlin'
 
