@@ -19,7 +19,13 @@ def insert_row_into_bigquery(credentials, target_table, row_to_insert):
         # Insert row into the table
         errors = client.insert_rows(table, [row_to_insert])
 
+        for err in errors:
+            print('\n' + err['reason'])
+            print('\n' + err['message'] + '\n')
+
         if errors:
             raise Exception(f"Errors occurred while inserting row into BigQuery: {errors}")
+        else:
+            return row_to_insert[-1]
     except Exception as e:
         print(f"An error occurred while inserting row into BigQuery: {e}")

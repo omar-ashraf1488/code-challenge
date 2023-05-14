@@ -1,13 +1,12 @@
 from google.cloud import bigquery
 
-def dump_ingested_data(credentials,target_table, start_date):
+def dump_ingested_data(credentials,target_table, id):
     try:
         # Initialize BigQuery client
         client = bigquery.Client(credentials=credentials)
         QUERY = (
             f'SELECT * FROM `{target_table}` '
-            f'WHERE start_date = "{start_date}" '
-            'ORDER BY start_date DESC '
+            f"WHERE weather_uuid = '{id}'"
             'LIMIT 1'
         )
 
@@ -18,8 +17,10 @@ def dump_ingested_data(credentials,target_table, start_date):
         for row in rows:
             row_dict = dict(row.items())
             result.update(row_dict)
-        print("Dumping the result:")
-        print(result)
+        print("\n" + "\033[32m" + "Dumping the result:" + "\033[0m")
+
+        for k, v in result.items():
+            print(f"{k}: {v}")
 
         return result
     except Exception as e:
