@@ -1,4 +1,6 @@
 from google.oauth2.service_account import Credentials
+import os
+from dotenv import load_dotenv
 
 from api.weather_api import fetch_weather_data
 from GCP.google_storage import create_bucket, create_folder
@@ -25,6 +27,9 @@ def main(config:Config):
     dump_ingested_data(credentials=config.credentials, target_table=config.target_table, id=id)
     
 if __name__ == '__main__':
+    # Load variables from .env file
+    load_dotenv()
+    
     user_inputs = get_user_inputs()
 
     credentials_path = user_inputs['credentials_path']
@@ -34,11 +39,11 @@ if __name__ == '__main__':
     end_date = user_inputs['end_date'] 
     location = user_inputs['location']
 
-    # Note: The following code is for solving the challenge and not follow best practices for production use.
-    service_location = ''
-    project_name = ''
-    bucket_name = ''
-    folder_name = ''
+    # Access the variables
+    service_location = os.getenv('SERVICE_LOCATION')
+    project_name = os.getenv('PROJECT_NAME')
+    bucket_name = os.getenv('BUCKET_NAME')
+    folder_name = os.getenv('FOLDER_NAME')
 
     # Load credentials from the JSON key file
     credentials = Credentials.from_service_account_file(credentials_path)

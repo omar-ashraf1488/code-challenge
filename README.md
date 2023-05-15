@@ -18,15 +18,15 @@ This service retrieves weather data from a weather API and ingests it into Googl
      - BIG_QUERY_TARGET_ID
 
 ## Configuration
-Open the <code>main.py</code> file in a text editor.
+Open the <code>.env</code> file in a text editor.
 
 Modify the following variables based on your requirements:
 
 ```python
-service_location = ''
-project_name = ''
-bucket_name = ''
-folder_name = ''
+SERVICE_LOCATION=your_service_location
+PROJECT_NAME=your_project_name
+BUCKET_NAME=your_bucket_name
+FOLDER_NAME=your_folder_name
 ```
 Note: 
 - Hard-coded the above variables is not considered best practice, but you can customize them to suit your service.
