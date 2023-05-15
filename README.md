@@ -10,10 +10,10 @@ This service retrieves weather data from a weather API and ingests it into Googl
 - Python 3 or a higher version
 - Dependencies and access the weather API, Google BigQuery, and Google Cloud Storage.
 - The required input parameters (for retrieving and storing the weather data):
-     - START_DATE, 
-     - END_DATE, 
-     - LOCATION, 
-     - API_KEY, 
+     - START_DATE
+     - END_DATE
+     - LOCATION 
+     - API_KEY 
      - GOOGLE_APPLICATION_CREDENTIALS_PATH
      - BIG_QUERY_TARGET_ID
 
