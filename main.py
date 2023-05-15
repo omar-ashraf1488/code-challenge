@@ -26,7 +26,7 @@ def main(config:Config):
     
 if __name__ == '__main__':
     user_inputs = get_user_inputs()
-    
+
     credentials_path = user_inputs['credentials_path']
     target_table = user_inputs['big_query_target_id'] 
     api_key = user_inputs['api_key'] 
@@ -35,10 +35,10 @@ if __name__ == '__main__':
     location = user_inputs['location']
 
     # Note: The following code is for solving the challenge and not follow best practices for production use.
-    service_location = 'europe-west3'
-    project_name = 'code-challenge-tagesspiegel'
-    bucket_name = 'weather-data-bucket1'
-    folder_name = 'weather-data'
+    service_location = ''
+    project_name = ''
+    bucket_name = ''
+    folder_name = ''
 
     # Load credentials from the JSON key file
     credentials = Credentials.from_service_account_file(credentials_path)
